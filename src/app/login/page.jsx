@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 import car from "@/assets/car-login.jpg";
 import Logo from "@/app/components/Logo/Logo";
