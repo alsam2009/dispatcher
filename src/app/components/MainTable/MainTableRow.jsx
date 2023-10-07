@@ -150,7 +150,7 @@ const MainTableRow = ({ tripsByDay, isLoading, time, i, date, day }) => {
               className={`flex w-[575px] md:w-[full] justify-between cursor-pointer`}
             >
               {/*div левый столбец Оренбург-Уфа*/}
-              <div className="flex gap-1 w-[450px] h-10 justify-start pl-1 items-center py-2 border-r border-zinc-500">
+              <div className="flex w-[450px] h-11 justify-start pl-1 items-center py-1 border-r border-zinc-500">
                 {tripsByDay &&
                   tripsByDay.map((trip, i) => {
                     const { directions } = trip;
@@ -168,10 +168,10 @@ const MainTableRow = ({ tripsByDay, isLoading, time, i, date, day }) => {
                   })}
               </div>
               <div className="flex w-[125px] justify-center items-center leading-none">
-                <div className={`w-[50px] h-10 text-base font-medium py-2 text-center border-r border-zinc-500 ${irish.className}`}>
+                <div className={`w-[50px] h-11 text-lg font-medium py-2 text-center border-r border-zinc-500 ${irish.className}`}>
                   {countDriverSeats}
                 </div>
-                <div className={`w-[75px] h-10 text-base font-medium py-2 text-center border-r border-zinc-500 ${irish.className}`}>
+                <div className={`w-[75px] h-11 text-lg font-medium py-2 text-center border-r border-zinc-500 ${irish.className}`}>
                   {countfreeSeats}
                 </div>
               </div>
@@ -180,7 +180,7 @@ const MainTableRow = ({ tripsByDay, isLoading, time, i, date, day }) => {
         )}
 
         <div
-          className={`flex items-center justify-center w-[70px] h-10 px-1 text-center text-xl font-bold border-r border-zinc-500 ${irish.className}`}
+          className={`flex items-center justify-center w-[70px] h-11 px-1 text-center text-xl font-bold border-r border-zinc-500 ${irish.className}`}
         >
           {time + `:00`}
         </div>
@@ -195,10 +195,10 @@ const MainTableRow = ({ tripsByDay, isLoading, time, i, date, day }) => {
               onClick={() => handleClickRight(div2Ref)}
               ref={div2Ref}
               id={time + " Уфа-Оренбург"}
-              className={`flex w-[575px] md:w-[full] justify-between cursor-pointer`}
+              className={`flex w-[575px] md:w-[full] h-11 justify-between cursor-pointer`}
             >
               {/*div правый столбец Уфа-Оернбург*/}
-              <div className="flex gap-1 w-[430px] h-10 justify-start pl-1 items-center py-2 border-r border-zinc-500">
+              <div className="flex w-[430px] h-11 justify-start pl-1 items-center py-1 border-r border-zinc-500">
                 {tripsByDay &&
                   tripsByDay.map((trip, i) => {
                     const { directions } = trip;
@@ -216,10 +216,10 @@ const MainTableRow = ({ tripsByDay, isLoading, time, i, date, day }) => {
                   })}
               </div>
               <div className="flex w-[125px] justify-center items-center leading-none">
-                <div className={`w-[50px] h-10 text-base font-medium py-2 text-center border-r border-zinc-500 ${irish.className}`}>
+                <div className={`w-[50px] h-11 text-lg font-medium py-2 text-center border-r border-zinc-500 ${irish.className}`}>
                   {countDriverSeatsRight}
                 </div>
-                <div className={`w-[75px] h-10 text-base font-medium py-2 text-center  border-zinc-500 ${irish.className}`}>
+                <div className={`w-[75px] h-11 text-lg font-medium py-2 text-center  border-zinc-500 ${irish.className}`}>
                   {countfreeSeatsRight}
                 </div>
               </div>
