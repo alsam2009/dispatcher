@@ -1,4 +1,5 @@
 function useLocalStorage () {
+  if (typeof window !== "undefined") {
   const getValue = (key) => {
     try {
       const storedValue = localStorage.getItem(key);
@@ -7,7 +8,8 @@ function useLocalStorage () {
       console.error(`Ошибка при получении localStorage: ${error}`);
       return null;
     }
-  };
+    };
+
 
   const setValue = (key, value) => {
     try {
@@ -26,6 +28,7 @@ function useLocalStorage () {
   };
 
   return { getValue, setValue, removeValue };
+  }
 }
 
 export { useLocalStorage };

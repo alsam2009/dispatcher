@@ -2,17 +2,16 @@
 
 import { useState, useEffect } from "react";
 import dynamic from 'next/dynamic';
-// import Avatar from "react-avatar-edit";
+import Avatar from "react-avatar-edit";
 
 const UploadAvatar = ({avatarChange}) => {
   const [src, setSrc] = useState(null);
   const [preview, setPreview] = useState(null);
 
-  const Avatar = dynamic(
-    () => import("react-avatar-edit"),
-    {ssr: false}
-)
-
+//   const Avatar = dynamic(
+//     () => import("react-avatar-edit"),
+//     {ssr: false}
+// )
 
   const onClose = () => {
     setPreview(null);
