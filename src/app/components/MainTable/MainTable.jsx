@@ -1,11 +1,11 @@
 "use client";
+
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import useSWR from "swr";
 
 import { fetcher } from "@/utils/helpers";
-import { useMyContext } from "Context/Context";
 
 import { Navbar } from "../Navbar/Navbar";
 import { MainTableRow } from "./MainTableRow";
@@ -17,7 +17,6 @@ import car from "@/assets/car.svg";
 import arrow_white from "@/assets/arrow_white.svg";
 
 const MainTable = () => {
-  const { userData, setUserData } = useMyContext();
   const timeRange = [
     "00",
     "01",
@@ -55,7 +54,7 @@ const MainTable = () => {
   const [dayLabel, setDayLabel] = useState("Сегодня");
   const [dayLabel2, setDayLabel2] = useState("Завтра");
 
-  const { data, error, isLoading } = useSWR(
+  const { data, isLoading } = useSWR(
     `/api/trips/day?date=${day}`,
     fetcher
   ); /*данные о поездках на текущий день*/
@@ -96,7 +95,7 @@ const MainTable = () => {
               </div>
             </Link>
           </div>
-          <div className="text-4xl font-medium">
+          <div className="text-4xl mr-24 font-medium">
             {dayLabel}:{" "}
             {date.toLocaleDateString("ru", {
               day: "numeric",

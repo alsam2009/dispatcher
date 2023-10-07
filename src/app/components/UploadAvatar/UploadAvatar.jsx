@@ -1,11 +1,17 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Avatar from "react-avatar-edit";
+import dynamic from 'next/dynamic';
+// import Avatar from "react-avatar-edit";
 
 const UploadAvatar = ({avatarChange}) => {
   const [src, setSrc] = useState(null);
   const [preview, setPreview] = useState(null);
+
+  const Avatar = dynamic(
+    () => import("react-avatar-edit"),
+    {ssr: false}
+)
 
 
   const onClose = () => {
@@ -14,7 +20,7 @@ const UploadAvatar = ({avatarChange}) => {
 
   const onCrop = (view) => {
     setPreview(view);
-    
+
     avatarChange(preview)
   };
 
