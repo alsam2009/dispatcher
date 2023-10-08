@@ -77,9 +77,9 @@ const TripRow = ({ data, direct, timeDirect, date }) => {
                 </tr>
               </thead>
               <tbody>
-                {items.map((data) => (
+                {items.map((data, i) => (
                   <TrTrip
-                    key={data.full_name}
+                    key={`${i}-trips-${i}`}
                     trips={data}
                     isExist={userExists}
                     handleDeleteTrip={handleDeleteTrip}
@@ -147,7 +147,7 @@ const TripRow = ({ data, direct, timeDirect, date }) => {
                 <td></td>
 
                 <td className="font-medium text-xl text-center">
-                  На текущее время поездок нет.
+                  На текущее время поездок нет
                 </td>
               </tr>
             )}

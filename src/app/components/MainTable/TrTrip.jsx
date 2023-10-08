@@ -2,9 +2,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { useSWRConfig } from "swr";
 
 import { useMyContext } from "Context/Context";
+import { irish } from "@/fonts";
 
 import whatsapp from "@/assets/whatsapp.png";
 import telegram from "@/assets/telegram.png";
@@ -12,7 +12,6 @@ import phone from "@/assets/phone.png";
 
 const TrTrip = ({ trips, loadingDel, handleDeleteTrip, deleted }) => {
   const { userData } = useMyContext();
-  const { mutate } = useSWRConfig();
   const [updated, setUpdated] = useState(false);
   const [isLoading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
@@ -24,10 +23,14 @@ const TrTrip = ({ trips, loadingDel, handleDeleteTrip, deleted }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: Number(value),
-    });
+    if (/^\d*$/.test(value) && (value === "" || parseInt(value) <= userData.seats)) {
+      setFormData({
+        ...formData,
+        [name]: value === "" ? "" : Number(value),
+      });
+    } else {
+      alert(`Введите число не больше ${userData.seats}`);
+    }
   };
 
   const handleSubmitUpdate = async () => {
@@ -59,21 +62,23 @@ const TrTrip = ({ trips, loadingDel, handleDeleteTrip, deleted }) => {
               <td className="text-light text-lg text-center py-4">
                 {trips.driver.id === userData.id ? "" : trips.driver.full_name}
               </td>
-              <td className="font-medium text-2xl text-center">
+              <td className={`font-medium text-2xl text-center ${irish.className}`}>
                 {" "}
                 {trips.driver.id === userData.id ? "" : `${trips.time}:00`}
               </td>
-              <td className="font-medium text-2xl text-center">
+              <td className={`font-medium text-2xl text-center ${irish.className}`}>
                 {trips.driver.id === userData.id ? "" : trips.driver.seats}
               </td>
-              <td className="font-medium text-2xl text-center">
+              <td className={`font-medium text-2xl text-center ${irish.className}`}>
                 {trips.driver.id === userData.id ? "" : trips.free_seats}
               </td>
               <td className="text-center">
                 {trips.driver.id === userData.id ? (
                   ""
                 ) : (
-                  <Link href={`https://wa.me/${trips.driver.whatsap}`}>
+                    <Link
+                      href={`https://wa.me/${trips.driver.whatsap}`}
+                      target="_blank">
                     <div className="flex justify-center items-center">
                       <Image
                         src={whatsapp}
@@ -89,7 +94,10 @@ const TrTrip = ({ trips, loadingDel, handleDeleteTrip, deleted }) => {
                 {trips.driver.id === userData.id ? (
                   ""
                 ) : (
-                  <Link href={`https://t.me/${trips.driver.telegram}`}>
+                    <Link
+                      href={`https://t.me/${trips.driver.telegram}`}
+                      target="_blank"
+                    >
                     <div className="flex justify-center items-center">
                       <Image
                         src={telegram}
@@ -118,11 +126,11 @@ const TrTrip = ({ trips, loadingDel, handleDeleteTrip, deleted }) => {
               <td className="text-light text-lg text-center py-4">
                 {trips.driver.full_name}
               </td>
-              <td className="font-medium text-2xl text-center">{`${trips.time}:00`}</td>
-              <td className="font-medium text-2xl text-center">
+              <td className={`font-medium text-2xl text-center ${irish.className}`}>{`${trips.time}:00`}</td>
+              <td className={`font-medium text-2xl text-center ${irish.className}`}>
                 {trips.driver.seats}
               </td>
-              <td className="font-medium text-2xl text-center">
+              <td className={`font-medium text-2xl text-center ${irish.className}`}>
                 {trips.driver.id === userData.id ? (
                   <input
                     onChange={handleChange}
@@ -177,7 +185,7 @@ const TrTrip = ({ trips, loadingDel, handleDeleteTrip, deleted }) => {
                   <button
                     onClick={() => handleSubmitUpdate(userData.id)}
                     disabled={isLoading}
-                    className="bg-white border-2 border-primary text-lg text-black w-32 px-4 py-2 rounded hover:bg-primaryHover transition ease-in-out duration-500"
+                    className="bg-white border-2 border-primary text-lg text-black w-32 px-4 py-2 rounded hover:bg-primaryHover hover:text-white transition ease-in-out duration-500"
                   >
                     {isLoading ? "Подождите" : "Обновить"}
                   </button>
@@ -187,7 +195,7 @@ const TrTrip = ({ trips, loadingDel, handleDeleteTrip, deleted }) => {
                   <button
                     onClick={() => handleDeleteTrip(trips.id)}
                     disabled={loadingDel}
-                    className="bg-white border-2 border-red-600 text-lg text-black w-32 px-4 py-2 rounded hover:bg-primaryHover transition ease-in-out duration-500"
+                    className="bg-white border-2 border-red-600 text-lg text-black hover:text-white w-32 px-4 py-2 mt-1 rounded hover:bg-primaryHover transition ease-in-out duration-500"
                   >
                     {loadingDel ? "Подождите" : "Удалить"}
                   </button>

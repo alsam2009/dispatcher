@@ -3,11 +3,12 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { useMyContext } from "Context/Context";
+import { irish } from "@/fonts";
 import whatsapp from "@/assets/whatsapp.png";
 import telegram from "@/assets/telegram.png";
 import phone from "@/assets/phone.png";
 
-const NewTrip = ({ trips, time, direction, date }) => {
+const NewTrip = ({ time, direction, date }) => {
   const { userData } = useMyContext();
 
   const [isLoading, setIsLoading] = useState(false);
@@ -22,10 +23,15 @@ const NewTrip = ({ trips, time, direction, date }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: Number(value),
-    });
+
+    if (/^\d*$/.test(value) && (value === "" || parseInt(value) <= userData.seats)) {
+      setFormData({
+        ...formData,
+        [name]: value === "" ? "" : Number(value),
+      });
+    } else {
+      alert(`Введите число не больше ${userData.seats}`);
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -55,9 +61,9 @@ const NewTrip = ({ trips, time, direction, date }) => {
         <td className="text-light text-lg text-center py-4">
           {userData.full_name}
         </td>
-        <td className="font-medium text-2xl text-center">{time + ":00"}</td>
-        <td className="font-medium text-2xl text-center">{userData.seats}</td>
-        <td className="font-medium text-2xl text-center">
+        <td className={`font-medium text-2xl text-center ${irish.className}`}>{time + ":00"}</td>
+        <td className={`font-medium text-2xl text-center ${irish.className}`}>{userData.seats}</td>
+        <td className={`font-medium text-2xl text-center ${irish.className}`}>
           <input
             onChange={handleChange}
             className="w-12 appearance-none border rounded py-2 px-3 leading-tight focus:outline-none focus:shadow-outline no-spinners"
@@ -96,7 +102,7 @@ const NewTrip = ({ trips, time, direction, date }) => {
           <button
             onClick={handleSubmit}
             disabled={isLoading}
-            className="bg-white border-2 border-primary text-lg text-black w-32 px-4 py-2 rounded hover:bg-primaryHover transition ease-in-out duration-500"
+            className="bg-white border-2 border-primary text-lg text-black w-32 px-4 py-2 mt-1 rounded hover:text-white hover:bg-primaryHover transition ease-in-out duration-500"
           >
             {isLoading ? "Подождите" : "Сохранить"}
           </button>

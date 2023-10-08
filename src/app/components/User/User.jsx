@@ -1,12 +1,15 @@
 "use client"
 
 import { useState } from "react";
+import { useSWRConfig } from "swr";
+import { fetcher } from "@/utils/helpers";
 import Image from 'next/image';
 import {useMyContext} from "Context/Context"
 import { formatName } from '@/utils/helpers';
 import { UploadAvatar } from '../UploadAvatar/UploadAvatar';
 
 export function User() {
+  const { mutate } = useSWRConfig();
   const {userData, setUserData} = useMyContext();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [changed, setChanged] = useState(null)
@@ -40,6 +43,8 @@ export function User() {
     avatar: changed,
   }));
     setIsMenuOpen(false);
+    mutate(`/api/users/${userData.id}`, fetcher(`/api/users/${userData.id}`));
+    mutate(`/api/trips/day?date=today`, fetcher(`/api/trips/day?date=today`));
   };
 
   const handleClickClear = async () => {

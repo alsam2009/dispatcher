@@ -82,13 +82,13 @@ const MainTable = () => {
       <div className="w-[1200px] pt-20 container mx-auto">
         <div className="flex justify-between items-center">
           <div className="flex gap-7 text-base font-light py-4">
-            <Link href="https://t.me/+KkdNVQXSWjVmZDli">
+            <Link href="https://t.me/+KkdNVQXSWjVmZ" target="_blank">
               <div className="flex pl-2 items-end gap-1 ">
                 <Image src={telegram} alt="telegram" width={33} height={33} />
                 <p>Telegram</p>
               </div>
             </Link>
-            <Link href="https://chat.whatsapp.com/ABCDEFG12345">
+            <Link href="https://chat.whatsapp.com/ABCDEFG12345" target='_blank'>
               <div className="flex items-end gap-1 ">
                 <Image src={whatsapp} alt="whatsapp" width={33} height={33} />
                 <p>Whatsapp</p>
