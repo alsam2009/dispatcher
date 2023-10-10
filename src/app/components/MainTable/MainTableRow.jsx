@@ -168,14 +168,14 @@ const MainTableRow = ({ tripsByDay, isLoading, time, i, date, day }) => {
               }
             })}
         </td>
-        <td className="border-r border-gray-500 text-center">
+        <td className={`border-r border-gray-500 text-base md:text-sm text-center ${irish.className}`}>
           {countDriverSeats}
         </td>
-        <td className="border-r border-gray-500 text-center">
+        <td className={`border-r border-gray-500 text-base md:text-sm text-center ${irish.className}`}>
           {countfreeSeats}
         </td>
         <td
-          className={` text-center text-xl font-bold border-r border-gray-500 ${irish.className}`}
+          className={` text-center text-xl md:text-base font-bold border-r border-gray-500 ${irish.className}`}
         >
           {time + `:00`}
         </td>
@@ -201,10 +201,10 @@ const MainTableRow = ({ tripsByDay, isLoading, time, i, date, day }) => {
               }
             })}
         </td>
-        <td className="border-r border-gray-500 text-center">
+        <td className={`border-r border-gray-500 text-base md:text-sm text-center ${irish.className}`}>
           {countDriverSeatsRight}
         </td>
-        <td className="text-center">{countfreeSeatsRight}</td>
+        <td className={`text-base md:text-sm text-center ${irish.className}`}>{countfreeSeatsRight}</td>
       </tr>
     </>
   );

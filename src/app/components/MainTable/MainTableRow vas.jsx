@@ -129,6 +129,7 @@ const MainTableRow = ({ tripsByDay, isLoading, time, i, date, day }) => {
         });
       }
     });
+  
 
   return (
     <>

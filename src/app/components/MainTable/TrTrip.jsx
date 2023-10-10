@@ -59,17 +59,17 @@ const TrTrip = ({ trips, loadingDel, handleDeleteTrip, deleted }) => {
         <>
           {deleted ? (
             <tr className="bg-zinc-300">
-              <td className="text-light text-lg text-center py-4">
-                {trips.driver.id === userData.id ? "" : trips.driver.full_name}
+              <td className="text-light text-sm md:text-[8px] text-center py-4">
+                {trips.driver?.id === userData.id ? "" : trips.driver.full_name}
               </td>
-              <td className={`font-medium text-2xl text-center ${irish.className}`}>
+              <td className={`font-medium text-2xl md:text-[8px] text-center ${irish.className}`}>
                 {" "}
                 {trips.driver.id === userData.id ? "" : `${trips.time}:00`}
               </td>
-              <td className={`font-medium text-2xl text-center ${irish.className}`}>
+              <td className={`font-medium text-2xl md:text-sm text-center ${irish.className}`}>
                 {trips.driver.id === userData.id ? "" : trips.driver.seats}
               </td>
-              <td className={`font-medium text-2xl text-center ${irish.className}`}>
+              <td className={`font-medium text-2xl md:text-[8px] text-center ${irish.className}`}>
                 {trips.driver.id === userData.id ? "" : trips.free_seats}
               </td>
               <td className="text-center">
@@ -123,14 +123,14 @@ const TrTrip = ({ trips, loadingDel, handleDeleteTrip, deleted }) => {
             </tr>
           ) : (
             <tr className="bg-zinc-300">
-              <td className="text-light text-lg text-center py-4">
+              <td className="text-light text-lg md:text-xs text-center py-4">
                 {trips.driver.full_name}
               </td>
-              <td className={`font-medium text-2xl text-center ${irish.className}`}>{`${trips.time}:00`}</td>
-              <td className={`font-medium text-2xl text-center ${irish.className}`}>
+              <td className={`font-medium text-2xl md:text-xs text-center ${irish.className}`}>{`${trips.time}:00`}</td>
+              <td className={`font-medium text-2xl md:text-xs text-center ${irish.className}`}>
                 {trips.driver.seats}
               </td>
-              <td className={`font-medium text-2xl text-center ${irish.className}`}>
+              <td className={`font-medium text-2xl md:text-xs text-center ${irish.className}`}>
                 {trips.driver.id === userData.id ? (
                   <input
                     onChange={handleChange}
@@ -151,6 +151,7 @@ const TrTrip = ({ trips, loadingDel, handleDeleteTrip, deleted }) => {
                       alt="whatsapp"
                       width={33}
                       height={33}
+                      className='scale-75'
                     />
                   </div>
                 </Link>
@@ -163,6 +164,7 @@ const TrTrip = ({ trips, loadingDel, handleDeleteTrip, deleted }) => {
                       alt="telegram"
                       width={33}
                       height={33}
+                      className='scale-75'
                     />
                   </div>
                 </Link>
@@ -170,13 +172,13 @@ const TrTrip = ({ trips, loadingDel, handleDeleteTrip, deleted }) => {
               <td>
                 <Link href={`tel:${trips.driver.mobile_phone}`}>
                   <div className="flex justify-center items-center">
-                    <Image src={phone} alt="phone" width={30} height={30} />
+                    <Image src={phone} alt="phone" width={30} height={30} className='scale-75' />
                   </div>
                 </Link>
               </td>
             </tr>
           )}
-          {trips.driver.id === userData.id ? (
+          {trips.driver?.id === userData.id ? (
             <>
               <tr>
                 <td></td>
