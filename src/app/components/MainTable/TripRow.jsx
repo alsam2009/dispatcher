@@ -124,13 +124,13 @@ const TripRow = ({ data, direct, timeDirect, date }) => {
         <table className="table-fixed w-[1197px] md:w-full">
           <thead className="text-[8px]">
             <tr className=" bg-zinc-200">
-              <th className="font-light w-[300px] md:w-[70px] text-center py-4">ФИО</th>
-              <th className="font-light text-center py-4">Время</th>
-              <th className="font-light text-center py-4">Посадочных мест</th>
-              <th className="font-light text-center py-4">Свободных мест</th>
-              <th className="font-light text-center py-4">WhatsApp</th>
-              <th className="font-light text-center py-4">Telegram</th>
-              <th className="font-light text-center py-4">Звонок водителю</th>
+              <th className="font-light w-[300px] md:w-[70px] text-base md:text-xs text-center py-4">ФИО</th>
+              <th className="text-base md:text-xs  font-light text-center py-4">Время</th>
+              <th className="text-base md:text-xs font-light text-center py-4">Посадочных мест</th>
+              <th className="text-base md:text-xs  font-light text-center py-4">Свободных мест</th>
+              <th className="text-base md:text-xs font-light text-center py-4">WhatsApp</th>
+              <th className="text-base md:text-xs font-light text-center py-4">Telegram</th>
+              <th className="text-base md:text-xs font-light text-center py-4">Звонок водителю</th>
             </tr>
           </thead>
           <tbody>
