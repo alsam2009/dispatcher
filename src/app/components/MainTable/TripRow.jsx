@@ -43,17 +43,17 @@ const TripRow = ({ data, direct, timeDirect, date }) => {
             <div>
               <div className="flex md:w-full justify-between items-center py-5 md:py-2 px-10 md:px-0">
                 <div className=" font-light text-4xl md:text-base md:pl-2">{direction}</div>
-                <div className={`mx-16 md:mx-8 font-normal text-6xl md:text-lg md:text-center ${irish.className}`}>
-                  {`${time}:00 - ${time.slice(0, 2)}:59`}
+                <div className={`mx-16 md:mx-0 font-normal text-6xl md:text-lg md:text-center ${irish.className}`}>
+                  {`${time} - ${time.slice(0, 2)}:59`}
                 </div>
                 <div key={time + "2"}>
                   <button
                     onClick={handleClickAdd}
-                    className={`w-[179px] md:w-full md:text-sm font-light bg-blue-950 rounded-md text-white px-1 py-4 hover:border-red-500 border-2 ${
+                    className={`w-[179px] md:w-full md:text-xs font-light bg-blue-950 rounded-md text-white px-1 py-4 md:mr-4 md:px-2 hover:border-red-500 border-2 ${
                       userExists ? "invisible" : "visible"
                     }`}
                   >
-                    Добавить себя
+                    Добавить
                   </button>
                 </div>
               </div>
@@ -106,25 +106,25 @@ const TripRow = ({ data, direct, timeDirect, date }) => {
     return (
       <>
         <div>
-          <div className="flex justify-between items-center py-5 md:py-2 px-10">
-            <div className=" font-light text-4xl">{timeDirect.direction}</div>
-            <div className="mx-16 font-normal text-6xl">
-              {`${timeDirect.time}:00 - ${timeDirect.time.slice(0, 2)}:59`}
+          <div className="flex md:w-full justify-between items-center py-5 md:py-2 px-10 md:px-0">
+            <div className=" font-light text-4xl md:text-base md:pl-2">{timeDirect?.direction}</div>
+            <div className={`mx-16 md:mx-0 font-normal text-6xl md:text-lg md:text-center ${irish.className}`}>
+              {`${timeDirect?.time + ":00"} - ${timeDirect?.time.slice(0, 2)}:59`}
             </div>
             <div>
               <button
                 onClick={handleClickAdd}
-                className={`w-[179px] md:text-sm font-light bg-blue-950 rounded-md text-white px-1 py-4 hover:border-red-500 border-2 `}
+                className={`w-[179px] md:w-full md:text-xs font-light bg-blue-950 rounded-md text-white px-1 py-4 md:mr-4 md:px-2 hover:border-red-500 border-2`}
               >
-                Добавить себя
+                Добавить
               </button>
             </div>
           </div>
         </div>
-        <table className="table-fixed w-[1197px]">
-          <thead className="text-sm">
+        <table className="table-fixed w-[1197px] md:w-full">
+          <thead className="text-[8px]">
             <tr className=" bg-zinc-200">
-              <th className="font-light w-[300px] text-center py-4">ФИО</th>
+              <th className="font-light w-[300px] md:w-[70px] text-center py-4">ФИО</th>
               <th className="font-light text-center py-4">Время</th>
               <th className="font-light text-center py-4">Посадочных мест</th>
               <th className="font-light text-center py-4">Свободных мест</th>
@@ -137,16 +137,16 @@ const TripRow = ({ data, direct, timeDirect, date }) => {
             {visibleUser ? (
               <NewTrip
                 trips={data}
-                time={timeDirect.time}
-                direction={timeDirect.direction}
+                time={timeDirect?.time}
+                direction={timeDirect?.direction}
                 date={date}
               />
             ) : (
               <tr>
-                <td></td>
-                <td></td>
+              <td></td>
+              <td></td>
 
-                <td className="font-medium text-xl text-center">
+                <td className="w-full font-medium text-xl md:text-sm text-center">
                   На текущее время поездок нет
                 </td>
               </tr>

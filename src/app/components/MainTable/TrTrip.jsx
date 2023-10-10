@@ -123,10 +123,10 @@ const TrTrip = ({ trips, loadingDel, handleDeleteTrip, deleted }) => {
             </tr>
           ) : (
             <tr className="bg-zinc-300">
-              <td className="text-light text-lg md:text-xs text-center py-4">
+              <td className="text-light text-lg md:text-xs text-center py-4 md:py-2">
                 {trips.driver.full_name}
               </td>
-              <td className={`font-medium text-2xl md:text-xs text-center ${irish.className}`}>{`${trips.time}:00`}</td>
+              <td className={`font-medium text-2xl md:text-xs text-center ${irish.className}`}>{`${trips.time}`}</td>
               <td className={`font-medium text-2xl md:text-xs text-center ${irish.className}`}>
                 {trips.driver.seats}
               </td>
@@ -134,7 +134,7 @@ const TrTrip = ({ trips, loadingDel, handleDeleteTrip, deleted }) => {
                 {trips.driver.id === userData.id ? (
                   <input
                     onChange={handleChange}
-                    className="w-12 appearance-none border rounded py-2 px-3 leading-tight focus:outline-none focus:shadow-outline no-spinners"
+                    className="w-12 md:w-8 appearance-none border rounded py-2 px-3 leading-tight focus:outline-none focus:shadow-outline no-spinners"
                     type="text"
                     name="free_seats"
                     value={formData.free_seats}
@@ -182,22 +182,22 @@ const TrTrip = ({ trips, loadingDel, handleDeleteTrip, deleted }) => {
             <>
               <tr>
                 <td></td>
-                <td></td>
-                <td>
-                  <button
+                <td><button
                     onClick={() => handleSubmitUpdate(userData.id)}
                     disabled={isLoading}
-                    className="bg-white border-2 border-primary text-lg text-black w-32 px-4 py-2 rounded hover:bg-primaryHover hover:text-white transition ease-in-out duration-500"
+                    className="bg-white border-2 border-primary text-lg md:text-xs text-black w-32 md:w-20 px-4 md:px-1 py-2 rounded hover:bg-primaryHover hover:text-white transition ease-in-out duration-500"
                   >
                     {isLoading ? "Подождите" : "Обновить"}
-                  </button>
+                  </button></td>
+                <td>
+
                 </td>
 
                 <td>
-                  <button
+                <button
                     onClick={() => handleDeleteTrip(trips.id)}
                     disabled={loadingDel}
-                    className="bg-white border-2 border-red-600 text-lg text-black hover:text-white w-32 px-4 py-2 mt-1 rounded hover:bg-primaryHover transition ease-in-out duration-500"
+                    className="bg-white border-2 border-red-600 text-lg md:text-xs text-black hover:text-white w-32 md:w-20 px-4 md:px-1 py-2 mt-1 rounded hover:bg-primaryHover transition ease-in-out duration-500"
                   >
                     {loadingDel ? "Подождите" : "Удалить"}
                   </button>
@@ -206,9 +206,9 @@ const TrTrip = ({ trips, loadingDel, handleDeleteTrip, deleted }) => {
               <tr>
                 <td></td>
                 <td></td>
-                <td>
-                  <span className=" text-green-500 text-lg font-medium">
-                    {updated && "✔️ Сохранено"}
+                <td className='w-full text-center'>
+                  <span className=" text-green-500 text-lg md:text-sm text-center font-medium">
+                    {updated && "Сохранено"}
                   </span>
                 </td>
               </tr>

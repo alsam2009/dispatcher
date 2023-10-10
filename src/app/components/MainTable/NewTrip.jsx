@@ -58,15 +58,15 @@ const NewTrip = ({ time, direction, date }) => {
   return (
     <>
       <tr className="bg-zinc-300">
-        <td className="text-light text-lg text-center py-4">
+        <td className="text-light text-lg md:text-xs text-center py-4 md:py-2">
           {userData.full_name}
         </td>
-        <td className={`font-medium text-2xl text-center ${irish.className}`}>{time + ":00"}</td>
-        <td className={`font-medium text-2xl text-center ${irish.className}`}>{userData.seats}</td>
-        <td className={`font-medium text-2xl text-center ${irish.className}`}>
+        <td className={`font-medium text-2xl md:text-xs text-center ${irish.className}`}>{time}</td>
+        <td className={`font-medium text-2xl md:text-xs text-center ${irish.className}`}>{userData.seats}</td>
+        <td className={`font-medium text-2xl md:text-xs text-center ${irish.className}`}>
           <input
             onChange={handleChange}
-            className="w-12 appearance-none border rounded py-2 px-3 leading-tight focus:outline-none focus:shadow-outline no-spinners"
+            className="w-12 md:w-8 appearance-none border rounded py-2 px-3 leading-tight focus:outline-none focus:shadow-outline no-spinners"
             type="text"
             name="free_seats"
             value={formData.free_seats}
@@ -75,21 +75,21 @@ const NewTrip = ({ time, direction, date }) => {
         <td className="text-center">
           <Link href={`https://wa.me/${userData.whatsap}`}>
             <div className="flex justify-center items-center">
-              <Image src={whatsapp} alt="whatsapp" width={33} height={33} />
+              <Image src={whatsapp} alt="whatsapp" width={33} height={33} className='md:scale-75' />
             </div>
           </Link>
         </td>
         <td>
           <Link href={`https://t.me/${userData.telegram}`}>
             <div className="flex justify-center items-center">
-              <Image src={telegram} alt="telegram" width={33} height={33} />
+              <Image src={telegram} alt="telegram" width={33} height={33} className='md:scale-75' />
             </div>
           </Link>
         </td>
         <td>
           <Link href={`tel:${userData.mobile_phone}`}>
             <div className="flex justify-center items-center">
-              <Image src={phone} alt="phone" width={30} height={30} />
+              <Image src={phone} alt="phone" width={30} height={30} className='md:scale-75' />
             </div>
           </Link>
         </td>
@@ -112,8 +112,8 @@ const NewTrip = ({ time, direction, date }) => {
         <td></td>
         <td></td>
         <td>
-          <span className=" text-green-500 text-lg font-medium">
-            {saved && "✔️ Сохранено"}
+          <span className=" text-green-500 text-lg md:text-sm text-center font-medium">
+            {saved && "Сохранено"}
           </span>
         </td>
       </tr>
