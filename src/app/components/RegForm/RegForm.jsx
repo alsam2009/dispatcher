@@ -115,8 +115,8 @@ const RegForm = ({reg}) => {
 
   return (
     <>
-      <div className='w-full px-5 text-center'>
-        <h2 className='text-primary font-light mb-6 sm:mb-14'>Для регистрации в системе введите свои данные</h2>
+      <div className='w-full px-5 text-center md:mt-[16rem]'>
+        <h2 className='text-primary font-light mb-6 md:mt-14'>Для регистрации в системе введите свои учетные данные</h2>
       </div>
       <form onSubmit={handleSubmit} className='relative'>
         <div className='flex flex-wrap ml-24 mr-20 sm:ml-1 sm:mr-2 mb-2 justify-between'>
@@ -237,7 +237,7 @@ const RegForm = ({reg}) => {
             />
             {errors.password && <p className="text-red-500 mt-2 font-light text-xs">{errors.password}</p>}
           </div>
-          <div className="flex justify-between font-light">
+          <div className="flex md:flex-col justify-between md:justify-center font-light ">
             <p className="pr-28 pt-3  text-primary text-sm">Аватар</p>
             <Avatar
               width={150}

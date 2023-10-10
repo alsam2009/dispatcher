@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  background-color: "#f7f7f7";
+}
+
+.divider-container {
+  display: flex;
+  align-items: stretch; /* Растягиваем дочерние элементы по высоте родителя */
+}
+
+.divider {
+  width: 1px;
+  background-color: #000;
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -10,3 +24,5 @@
     transform: rotate(360deg);
   }
 }
+
+

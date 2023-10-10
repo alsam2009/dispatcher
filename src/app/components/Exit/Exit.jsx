@@ -12,7 +12,7 @@ export function Exit () {
     router.push('/login')
   }
   return (
-    <div className='ml-4 border-b-2 border-b-red-700 py-1 cursor-pointer text-baseColor text-lg leading-none hover:text-red-400' onClick={handleClick}>
+    <div className='ml-4 md:ml-2 border-b-2 border-b-red-700 py-1 cursor-pointer text-baseColor text-lg md:text-xs leading-none hover:text-red-400' onClick={handleClick}>
       Выход
     </div>
   )

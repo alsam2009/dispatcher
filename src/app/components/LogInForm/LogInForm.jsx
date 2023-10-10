@@ -91,8 +91,8 @@ function LogInForm({ reg }) {
   return (
     <>
       <div className='w-full px-5 text-center'>
-        <h2 className='text-primary font-light mb-10'>
-          Для входа в систему введите свои данные
+        <h2 className='text-primary font-light mb-10 md:mb-6'>
+          Для входа в систему введите свои учетные данные
         </h2>
       </div>
       <form onSubmit={handleSubmit}>
@@ -147,11 +147,11 @@ function LogInForm({ reg }) {
           </div>
         </div>
 
-        <div className='flex flex-col items-center mb-10'>
+        <div className='flex flex-col items-center mb-10 md:mb-6'>
           <h2
             className={`${
               auth ? 'invisible' : 'visible'
-            } text-red-600 font-light mb-8 sm:mb-4`}
+            } text-red-600 font-light mb-8 md:mb-4`}
           >
             Неверные логин или пароль
           </h2>
@@ -179,7 +179,7 @@ function LogInForm({ reg }) {
         </div>
       </form>
 
-      <div className='flex w-full justify-center md:hidden'>
+      <div className='flex w-full justify-center '>
         <p className='text-primary font-light text-sm'>
           У меня нет аккаунта.{' '}
           <span
@@ -190,9 +190,9 @@ function LogInForm({ reg }) {
           </span>
         </p>
       </div>
-      <p className='text-primary font-light text-sm hidden md:block'>
+      {/* <p className='text-primary font-light text-sm hidden md:block'>
         Для регистрации в системе обратитесь к диспетчеру.
-      </p>
+      </p> */}
     </>
   );
 }

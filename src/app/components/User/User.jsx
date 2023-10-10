@@ -66,7 +66,7 @@ export function User() {
           <Image
             key={userData.avatar}
             src={userData.avatar}
-            className="border-baseColor border-2 rounded-full w-11 h-11 md:w-6 md:h-6 cursor-pointer"
+            className="border-baseColor border-2 rounded-full w-11 h-11 md:w-7 md:h-7 cursor-pointer"
             width={34}
             height={34}
             alt="Avatar Driver"
